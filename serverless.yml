@@ -1,11 +1,11 @@
-service: gcf-nodejs # NOTE: Don't put the word "google" in here
+service: nostalgia # NOTE: Don't put the word "google" in here
 
 provider:
   name: google
   runtime: nodejs
-  project: my-project
+  project: YOUR_GCLOUD_PROJECT_ID
   # the path to the credentials file needs to be absolute
-  credentials: ~/.gcloud/keyfile.json
+  credentials: secret.json
 
 plugins:
   - serverless-google-cloudfunctions
@@ -17,10 +17,13 @@ package:
     - node_modules/**
     - .gitignore
     - .git/**
+    - README.md
+    - .idea/**
+    - secret.json
 
 functions:
   first:
-    handler: http
+    handler: nostalgia
     events:
       - http: path
 
@@ -40,6 +43,6 @@ functions:
 #resources:
 #  resources:
 #    - type: storage.v1.bucket
-#      name: my-serverless-service-bucket
+#      name: sls-nostalgia-dev
 #  imports:
 #    - path: my_template.jinja

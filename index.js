@@ -1,6 +1,6 @@
 'use strict';
 
-exports.http = (request, response) => {
+exports.nostalgia = (request, response) => {
   response.status(200).send('Hello World!');
 };
 
