@@ -10,5 +10,6 @@
   "license": "MIT",
   "dependencies": {
     "serverless-google-cloudfunctions": "^1.1.0"
+    "puppeteer": "^0.13.0",
   }
 }
