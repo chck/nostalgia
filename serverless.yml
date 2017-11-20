@@ -20,6 +20,7 @@ package:
     - README.md
     - .idea/**
     - secret.json
+    - config.example.js
 
 functions:
   first:

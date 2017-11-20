@@ -19,7 +19,7 @@ async function fetchProgress() {
   await page.goto(config.githubProjectUrl);
   await page.waitFor(3000);
   await page.screenshot({
-    path: 'progress.png',
+    path: config.screenshotPath,
     clip: {
       'x': config.clipX,
       'y': config.clipY,
