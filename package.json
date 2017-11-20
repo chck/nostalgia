@@ -9,6 +9,9 @@
   "author": "serverless.com",
   "license": "MIT",
   "dependencies": {
+    "@google-cloud/storage": "^1.4.0",
+    "fs-extra": "^4.0.2",
+    "moment": "^2.19.2",
     "puppeteer": "^0.13.0",
     "serverless-google-cloudfunctions": "^1.1.0",
     "superagent": "^3.8.1"
