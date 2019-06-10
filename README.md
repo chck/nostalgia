@@ -5,6 +5,7 @@
 ## Requirements
 ```
 node==v8.15.*
+direnv==v2.20.*
 ```
 
 ## Setup
