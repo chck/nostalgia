@@ -76,3 +76,6 @@ typings/
 
 # WebStorm
 .idea/
+
+# direnv
+.envrc
