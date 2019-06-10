@@ -1,0 +1,13 @@
+{
+  "name": "nostalgia",
+  "version": "1.0.0",
+  "description": "A function to share your progress by google cloud functions",
+  "main": "index.js",
+  "repository": "https://github.com/chck/nostalgia",
+  "author": "chck",
+  "license": "MIT",
+  "devDependencies": {
+    "ava": "^2.0.0",
+    "sinon": "^7.3.2"
+  }
+}
