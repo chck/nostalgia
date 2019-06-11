@@ -1,7 +1,7 @@
 const test = require(`ava`);
 const sinon = require(`sinon`);
 
-const nostalgia = require(`../src/main`).nostalgia;
+const nostalgia = require(`../src`).nostalgia;
 
 test(`nostalgia: should print name`, t => {
   const name = 'nostalgia';
