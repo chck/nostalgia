@@ -79,3 +79,6 @@ typings/
 
 # direnv
 .envrc
+
+# ndenv
+.node-version
