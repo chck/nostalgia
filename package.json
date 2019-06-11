@@ -7,7 +7,10 @@
   "author": "chck",
   "license": "MIT",
   "devDependencies": {
-    "ava": "^2.0.0",
+    "ava": "^2.1.0",
     "sinon": "^7.3.2"
+  },
+  "dependencies": {
+    "puppeteer": "^1.17.0"
   }
 }
