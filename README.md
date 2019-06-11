@@ -4,7 +4,7 @@
 
 ## Requirements
 ```
-node==v8.15.*
+node==v10.16.*
 direnv==v2.20.*
 ```
 

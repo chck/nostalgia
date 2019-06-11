@@ -82,3 +82,6 @@ typings/
 
 # ndenv
 .node-version
+
+# cloud functions
+.env.yaml
