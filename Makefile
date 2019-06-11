@@ -10,8 +10,10 @@ test:
 	ava -v
 
 .PHONY: build ## Build the environment
+ENVS:=$(shell sed -n -e 's/export //p' .envrc | tr '\n' ' ')
 build:
 	sed -n -e 's/export \(.*\)=\(.*\)/\1: "\2"/p' .envrc > src/.env.yaml
+	travis encrypt "$(ENVS)" --add env
 
 .PHONY: deploy ## Deploy to google cloud functions
 deploy:
