@@ -12,12 +12,35 @@ const login = async () => {
   await page.waitForSelector(`#login_field`);
   await page.type(`#login_field`, process.env['GITHUB_ID']);
   await page.type(`#password`, process.env['GITHUB_PW']);
-  const submit_button = await page.$(`input[type="submit"]`);
-  await submit_button.click();
+  const submitButton = await page.$(`input[type="submit"]`);
+  await submitButton.click();
   await page.waitFor(3000);
-  return page
+  return {
+    page: page,
+    browser: browser,
+  }
+};
+
+const fetchProgress = async () => {
+  const loggedin = await login();
+  const page = loggedin.page;
+  const screenshotPath = process.env['SCREENSHOT_PATH'];
+  await page.goto(process.env['GITHUB_PROJECT_URL']);
+  await page.waitFor(3000);
+  await page.screenshot({
+    path: screenshotPath,
+    clip: {
+      x: Number(process.env['CLIP_X']),
+      y: Number(process.env['CLIP_Y']),
+      width: Number(process.env['CLIP_WIDTH']),
+      height: Number(process.env['CLIP_HEIGHT']),
+    },
+  });
+  await loggedin.browser.close();
+  return screenshotPath;
 };
 
 module.exports = {
   login,
+  fetchProgress,
 };
