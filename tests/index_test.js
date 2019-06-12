@@ -3,7 +3,8 @@ const sinon = require(`sinon`);
 
 const nostalgia = require(`../src`).nostalgia;
 
-test(`nostalgia: should print name`, t => {
+test(`nostalgia: should print screenshot's path`, async (t) => {
+  const expected = process.env['SCREENSHOT_PATH'];
   const name = 'nostalgia';
   const req = {
     body: {
@@ -12,8 +13,8 @@ test(`nostalgia: should print name`, t => {
   };
   const res = {send: sinon.stub()};
 
-  nostalgia(req, res);
+  await nostalgia(req, res);
 
   t.true(res.send.calledOnce);
-  t.deepEqual(res.send.firstCall.args, [`Hello ${name}!`]);
+  t.deepEqual(res.send.firstCall.args, [expected]);
 });
