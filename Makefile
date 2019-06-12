@@ -19,12 +19,14 @@ build:
 deploy:
 	@make build
 	gcloud config set project $(GCP_PROJECT)
+	cp package.json src/
 	cd src && \
 	gcloud functions deploy $(FUNCTION_NAME) \
 		--runtime nodejs10 \
 		--trigger-http \
 		--env-vars-file .env.yaml \
-		--region $(FUNCTION_REGION)
+		--region $(FUNCTION_REGION) \
+		--memory 512MB
 
 .PHONY: help ## View help
 help:

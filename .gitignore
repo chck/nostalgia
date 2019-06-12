@@ -85,3 +85,4 @@ typings/
 
 # cloud functions
 .env.yaml
+src/package.json
