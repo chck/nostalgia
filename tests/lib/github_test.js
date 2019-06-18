@@ -1,5 +1,5 @@
 const test = require(`ava`);
-const fs = require(`fs`);
+const fs = require(`fs-extra`);
 const github = require(`../../src/lib/github`);
 
 test(`github: should login`, async (t) => {
