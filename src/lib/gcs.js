@@ -4,7 +4,7 @@ const utils = require(`./utils`);
 
 const uploadImg = async (localPath) => {
   const remotePath = `screenshots/${utils.genArticleName()}.png`;
-  const bucket= process.env[`GCS_BUCKET`];
+  const bucket = process.env[`GCS_BUCKET`];
   const remoteFile = new storage.Storage({
     projectId: process.env['GCP_PROJECT'],
   }).bucket(bucket).file(remotePath);
@@ -22,6 +22,13 @@ const uploadImg = async (localPath) => {
   })
 };
 
+const removeImg = async (remotePath) => {
+  return await new storage.Storage({
+    projectId: process.env[`GCP_PROJECT`],
+  }).bucket(process.env[`GCS_BUCKET`]).file(remotePath).delete();
+};
+
 module.exports = {
   uploadImg,
+  removeImg,
 };

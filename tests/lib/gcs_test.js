@@ -24,9 +24,7 @@ test.skip(`gcs: should upload image`, async (t) => {
 
   t.deepEqual(exists, [true]);
 
-  await new storage.Storage({
-    projectId: process.env[`GCP_PROJECT`],
-  }).bucket(process.env[`GCS_BUCKET`]).file(remotePath).delete();
+  gcs.removeImg(remotePath);
 });
 
 test.after(t => {
