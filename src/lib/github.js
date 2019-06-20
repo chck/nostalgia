@@ -23,10 +23,10 @@ const login = async () => {
   }
 };
 
-const fetchProgress = async () => {
+const fetchProgress = async (projectUrl) => {
   const loggedin = await login();
   const page = loggedin.page;
-  await page.goto(process.env['GITHUB_PROJECT_URL']);
+  await page.goto(projectUrl);
   await page.waitFor(3000);
   await page.screenshot({
     path: screenshotPath,

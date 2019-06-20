@@ -13,7 +13,8 @@ test.skip(`github: should login`, async (t) => {
 });
 
 test(`github: should fetch progress`, async (t) => {
-  const actual = await github.fetchProgress();
+  const projectUrl = `https://github.com/chck/nostalgia/projects/1`;
+  const actual = await github.fetchProgress(projectUrl);
   const expected = github.screenshotPath;
   t.is(actual, expected);
   t.true(fs.existsSync(github.screenshotPath));
