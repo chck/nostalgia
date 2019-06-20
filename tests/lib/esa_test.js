@@ -14,7 +14,7 @@ test.before(async (t) => {
 });
 
 test(`esa: should post progress`, async (t) => {
-  const created = await esa.postProgress(imgUrl, `This post is test via ava.`);
+  const created = await esa.postProgress(imgUrl);
   t.true(created.status === 201);
   const deleted = await esa.deleteArticle(created.data.number);
   t.true(deleted.status === 204);

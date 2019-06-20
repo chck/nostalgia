@@ -4,10 +4,10 @@ const utils = require(`./utils`);
 const endpoint = `https://api.esa.io/v1/teams/${process.env['ESA_TEAM_ID']}/posts`;
 const accessToken = process.env['ESA_ACCESS_TOKEN'];
 
-const postProgress = async (imgUrl, footer) => {
+const postProgress = async (imgUrl) => {
   const bodyMd = [
     `![${imgUrl}](${imgUrl})[^1]`,
-    `[^1]: ${footer}`,
+    `[^1]: This article was posted by [nostalgia](https://github.com/chck/nostalgia)`,
   ].join('\n');
 
   return await postArticle({
