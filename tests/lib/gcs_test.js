@@ -14,7 +14,10 @@ test.before(t => {
   fs.writeFileSync(localPath, `test`)
 });
 
-// due to embed gcp credential in travis is difficult.
+/*
+  Due to embed gcp credential in travis is difficult.
+  TODO: Apply `travis encrypt-file` to embed gcp credential.
+* */
 test.skip(`gcs: should upload image`, async (t) => {
   await gcs.uploadImg(localPath);
   const remotePath = `screenshots/${utils.genArticleName()}.png`;
