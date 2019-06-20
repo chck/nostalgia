@@ -1,5 +1,7 @@
 const github = require(`./lib/github`);
-
+const gcs = require(`./lib/gcs`);
+const esa = require(`./lib/esa`);
+const escapeHtml = require(`escape-html`);
 
 /**
  * HTTP Cloud Function.
@@ -8,6 +10,9 @@ const github = require(`./lib/github`);
  * @param {Object} res Cloud Function response context.
  */
 exports.nostalgia = async (req, res) => {
-  const screenshotPath = await github.fetchProgress();
-  res.send(screenshotPath);
+  const githubProjectUrl = escapeHtml(req.body.githubProjectUrl);
+  const screenshotPath = await github.fetchProgress(githubProjectUrl);
+  const imgUrl = await gcs.uploadImg(screenshotPath);
+  const created = await esa.postProgress(imgUrl);
+  res.send(created.data.url);
 };
