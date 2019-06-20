@@ -1,3 +1,6 @@
+FUNCTION_NAME:=nostalgia
+FUNCTION_REGION:=asia-northeast1
+
 .PHONY: all
 all: help
 

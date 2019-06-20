@@ -1,5 +1,7 @@
 const puppeteer = require(`puppeteer`);
 
+const screenshotPath = `/tmp/progress.png`;
+
 const login = async () => {
   const browser = await puppeteer.launch({args: ['--no-sandbox']});
   const page = await browser.newPage();
@@ -24,7 +26,6 @@ const login = async () => {
 const fetchProgress = async () => {
   const loggedin = await login();
   const page = loggedin.page;
-  const screenshotPath = process.env['SCREENSHOT_PATH'];
   await page.goto(process.env['GITHUB_PROJECT_URL']);
   await page.waitFor(3000);
   await page.screenshot({
@@ -41,6 +42,7 @@ const fetchProgress = async () => {
 };
 
 module.exports = {
+  screenshotPath,
   login,
   fetchProgress,
 };

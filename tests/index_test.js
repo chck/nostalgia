@@ -3,7 +3,7 @@ const sinon = require(`sinon`);
 
 const nostalgia = require(`../src`).nostalgia;
 
-test(`nostalgia: should print screenshot's path`, async (t) => {
+test.skip(`nostalgia: should print screenshot's path`, async (t) => {
   const expected = process.env['SCREENSHOT_PATH'];
   const name = 'nostalgia';
   const req = {
