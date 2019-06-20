@@ -7,7 +7,11 @@ const nostalgia = require(`../src`).nostalgia;
 const rArticleUrl = `https://${process.env[`ESA_TEAM_ID`]}.esa.io/posts/\\d+`;
 let createdArticleUrl = ``;
 
-test(`nostalgia: should share your progress.`, async (t) => {
+/*
+  Due to embed gcp credential in travis is difficult.
+  TODO: Apply `travis encrypt-file` to embed gcp credential.
+* */
+test.skip(`nostalgia: should share your progress.`, async (t) => {
   const req = {
     body: {
       githubProjectUrl: `https://github.com/chck/nostalgia/projects/1`
