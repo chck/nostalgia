@@ -78,7 +78,7 @@ typings/
 .idea/
 
 # direnv
-.envrc
+.env
 
 # ndenv
 .node-version

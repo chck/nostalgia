@@ -13,9 +13,9 @@ test:
 	ava -v
 
 .PHONY: build ## Build the environment
-ENVS:=$(shell sed -n -e 's/export //p' .envrc | tr '\n' ' ')
+ENVS:=$(shell cat .env | tr '\n' ' ')
 build:
-	sed -n -e 's/^export \(.*\)=\(.*\)/\1: "\2"/p' .envrc | grep -v "GOOGLE_APPLICATION_CREDENTIALS" > src/.env.yaml
+	sed -n -e 's/^\(.*\)=\(.*\)/\1: "\2"/p' .env | grep -v "GOOGLE_APPLICATION_CREDENTIALS" > src/.env.yaml
 	travis encrypt "$(ENVS)" --add env
 
 .PHONY: deploy ## Deploy to google cloud functions
