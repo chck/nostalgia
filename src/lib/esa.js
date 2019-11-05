@@ -3,10 +3,12 @@ const utils = require(`./utils`);
 
 const endpoint = `https://api.esa.io/v1/teams/${process.env['ESA_TEAM_ID']}/posts`;
 const accessToken = process.env['ESA_ACCESS_TOKEN'];
+const appendix = process.env['ESA_BODY_APPENDIX'];
 
 const postProgress = async (imgUrl) => {
   const bodyMd = [
     `![${imgUrl}](${imgUrl})[^1]`,
+    `${appendix}`,
     `[^1]: This article was posted by [nostalgia](https://github.com/chck/nostalgia)`,
   ].join('\n');
 
