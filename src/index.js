@@ -9,7 +9,7 @@ const esa = require(`./lib/esa`);
  * @param {Object} res Cloud Function response context.
  */
 exports.nostalgia = async (req, res) => {
-  // TODO: error handling to not guess req.body.githuubProjectUrl
+  // TODO: error handling to not guess req.body.githubProjectUrl
   const githubProjectUrl = JSON.parse(req.body.toString()).githubProjectUrl;
   const screenshotPath = await github.fetchProgress(githubProjectUrl);
   const imgUrl = await gcs.uploadImg(screenshotPath);
